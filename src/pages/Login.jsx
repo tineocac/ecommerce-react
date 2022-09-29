@@ -2,8 +2,8 @@ import React from 'react';
 
 const Login = () => {
     return (
-        <div>
-            
+        <div className='route'>
+            <h1>This is my Login component</h1>
         </div>
     );
 };

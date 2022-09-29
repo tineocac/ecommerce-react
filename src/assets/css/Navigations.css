@@ -1,0 +1,12 @@
+.nav{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.button{
+    --bs-btn-color: #d2e6f9;
+    --bs-btn-hover-bg: transparent!important;
+    --bs-btn-hover-border-color: transparent!important;
+    font-size: 2rem!important
+}
