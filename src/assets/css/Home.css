@@ -7,3 +7,7 @@
     margin: 0 auto;
     background-position: center;
 }
+
+.list-group-item{
+    width: fit-content;
+}

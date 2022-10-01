@@ -37,10 +37,21 @@ const Home = () => {
 
     return (
         <Row>
-            <Col lg={3}>
+            <Col  lg={3}>
+                {/* <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        Dropdown Button
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown> */}
                 <ListGroup>
-                <ListGroup.Item action onClick={ () => setNewFiltered(products)}>
-                    All categories
+                    <ListGroup.Item action onClick={() => setNewFiltered(products)}>
+                        All categories
                     </ListGroup.Item>
                     {
                         categories?.map(category =>
@@ -70,15 +81,14 @@ const Home = () => {
                     {newFiltered.map(product => (
                         <Col key={product.id}>
                             <Card onClick={() => navigate(`/product/${product.id}`)} style={{ height: '100%', cursor: 'pointer' }}>
-                               
-                                {/* <Card.Img variant="top" style={{ width: 'img-fluid' }} src={product.productImgs[0]} /> */}
+
                                 <div className='proof'
-                                style={{backgroundImage: `url(${product.productImgs[0]})`, backgroundSize: 'contain', backgroundRepeat:'no-repeat'}}
+                                    style={{ backgroundImage: `url(${product.productImgs[0]})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', }}
 
                                 >
                                 </div>
-                                
-                             
+
+
                                 <Card.Body>
                                     <Card.Title>{product.title}</Card.Title>
                                     <Card.Text>
@@ -86,7 +96,7 @@ const Home = () => {
                                 </Card.Body>
                             </Card>
                         </Col>
-                        
+
                     ))}
                 </Row>
             </Col>
