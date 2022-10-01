@@ -32,10 +32,16 @@ const Home = () => {
         setNewFiltered(filtered)
     }
 
+    // console.log(newFiltered[0]?.productImgs
+    //     );
+
     return (
         <Row>
             <Col lg={3}>
                 <ListGroup>
+                <ListGroup.Item action onClick={ () => setNewFiltered(products)}>
+                    All categories
+                    </ListGroup.Item>
                     {
                         categories?.map(category =>
 
@@ -64,7 +70,15 @@ const Home = () => {
                     {newFiltered.map(product => (
                         <Col key={product.id}>
                             <Card onClick={() => navigate(`/product/${product.id}`)} style={{ height: '100%', cursor: 'pointer' }}>
-                                <Card.Img variant="top" style={{ width: '150px' }} src={product.productImgs} />
+                               
+                                {/* <Card.Img variant="top" style={{ width: 'img-fluid' }} src={product.productImgs[0]} /> */}
+                                <div className='proof'
+                                style={{backgroundImage: `url(${product.productImgs[0]})`, backgroundSize: 'contain', backgroundRepeat:'no-repeat'}}
+
+                                >
+                                </div>
+                                
+                             
                                 <Card.Body>
                                     <Card.Title>{product.title}</Card.Title>
                                     <Card.Text>
@@ -72,6 +86,7 @@ const Home = () => {
                                 </Card.Body>
                             </Card>
                         </Col>
+                        
                     ))}
                 </Row>
             </Col>
