@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import './assets/css/App.css'
+import Footer from './components/Footer'
 import Loader from './components/Loader'
 import Navigation from './components/Navigation'
 import Home from './pages/Home'
@@ -34,6 +35,7 @@ function App() {
           </Routes>
         </Container>
       </div>
+      <Footer/>
     </HashRouter>
   )
 }
