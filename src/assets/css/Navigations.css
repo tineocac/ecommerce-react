@@ -1,12 +1,18 @@
-.nav{
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
+.nav-link{
+    width: fit-content;
 }
 
-.button{
+.cart{
+    color: rgba(255, 255, 255, 0.6)!important;
     --bs-btn-color: #d2e6f9;
     --bs-btn-hover-bg: transparent!important;
     --bs-btn-hover-border-color: transparent!important;
-    font-size: 2rem!important
+    --bs-btn-padding-x: none!important;
+    font-size: 0.9625rem !important;
+    height: 25.55px !important;
+    display: flex !important;
+}
+
+.cart:hover{
+    color: #fff !important;
 }

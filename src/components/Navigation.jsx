@@ -6,17 +6,20 @@ import { Link } from 'react-router-dom';
 import Cart from './Cart';
 import '../assets/css/Navigations.css'
 
-const Navigation= () => {
+const Navigation = () => {
     return (
-        <Navbar bg="primary" variant="dark">
+        <Navbar bg="primary" variant='dark' expand="lg">
             <Container>
                 <Navbar.Brand to='/' as={Link}>Ecommerce</Navbar.Brand>
-                <Nav className='nav'>
-                    <Nav.Link to='/' as={Link}>Home</Nav.Link>
-                    <Nav.Link to='/login' as={Link}>Login</Nav.Link>
-                    <Nav.Link to='/purschases' as={Link}>Purschases</Nav.Link>
-                    <Nav.Link>{<Cart/>}</Nav.Link>
-                </Nav>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link to='/' as={Link}>Home</Nav.Link>
+                        <Nav.Link to='/login' as={Link}>Login</Nav.Link>
+                        <Nav.Link to='/purschases' as={Link}>Purschases</Nav.Link>
+                        <Nav.Link>{<Cart />}</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     );

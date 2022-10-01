@@ -11,7 +11,7 @@ function Cart() {
 
   return (
     <>
-      <Button className='button' variant="primary" onClick={handleShow}>
+      <Button className='button cart' variant="primary" onClick={handleShow}>
         Cart
       </Button>
 
