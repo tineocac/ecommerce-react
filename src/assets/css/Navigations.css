@@ -1,3 +1,7 @@
+.navbar{
+    position: fixed;
+}
+
 .nav-link{
     width: fit-content;
 }

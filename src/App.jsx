@@ -34,8 +34,11 @@ function App() {
             <Route path='/purschases' element={<Purschases />} />
           </Routes>
         </Container>
+        <footer>
+          <Footer />
+        </footer>
       </div>
-      <Footer/>
+
     </HashRouter>
   )
 }

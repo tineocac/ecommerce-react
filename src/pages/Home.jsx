@@ -82,7 +82,7 @@ const Home = () => {
                         <Col key={product.id}>
                             <Card onClick={() => navigate(`/product/${product.id}`)} style={{ height: '100%', cursor: 'pointer' }}>
 
-                                <div className='proof'
+                                <div className='container-product'
                                     style={{ backgroundImage: `url(${product.productImgs[0]})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', }}
 
                                 >

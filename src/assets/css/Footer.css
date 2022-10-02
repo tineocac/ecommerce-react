@@ -1,0 +1,45 @@
+
+h2,
+h5 {
+  cursor: pointer;
+  width: fit-content;
+}
+
+h2:hover,
+h5:hover {
+  transform: scale(1.05);
+  transition: 0.1s;
+}
+
+.footer-logo {
+  width: 50px;
+  height: 50px;
+  background-image: url(../icons/cart.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: 0.5s;
+  opacity: 0.5;
+}
+.footer-logo:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+  opacity: 1;
+}
+
+small {
+  display: block;
+  width: fit-content;
+}
+
+small:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.rights-container{
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+}

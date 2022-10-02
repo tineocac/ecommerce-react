@@ -10,7 +10,7 @@ const Navigation = () => {
     return (
         <Navbar bg="primary" variant='dark' expand="lg">
             <Container>
-                <Navbar.Brand to='/' as={Link}>Ecommerce</Navbar.Brand>
+                <Navbar.Brand to='/' as={Link}>eCommerce</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">

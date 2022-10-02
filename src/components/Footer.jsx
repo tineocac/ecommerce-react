@@ -1,47 +1,71 @@
 import React from 'react'
+import { Col, Row } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
+import '../assets/css/Footer.css'
 
 const Footer = () => {
+
+const navigate = useNavigate();
+
   return (
-    <div className='footer'>
-      <button className='footer-btn'> Inicio de página </button>
-      <section>
-        <div>
-            <strong>Cónocenos</strong>
-            <p>Trabaja con nosotros</p>
-            <p>Información corporativa</p>
-            <p>Departamento de prensa</p>
+    <Row className='footer m-0 p-5 pb-0 small-5 bg-dark text-white'>
+
+      <Col xs={12} md={6} lg={4}>
+
+        <div className='footer-logo' onClick={() => window.scrollTo(0, 0)}>
         </div>
-        <div>
-            <strong>Gana dinero con nosotros</strong>
-            <p>Vender en </p>
-            <p>Pogramas afiliados</p>
-            <p>Anuncia tus productos</p>
+        <h2>About us</h2>
+        <div className="text-secondary">
+          <small>Work with us</small>
+          <small>Corporate information</small>
+          <small>Press department</small>
         </div>
-        <div>
-            <strong>Métodos de pago</strong>
-            <p>Tarjeta de crédito y débito</p>
-            <p>Tarjetas de regalo</p>
-            <p>Pago en efectivo</p>
-            <p>Meses sin intereses</p>
+
+      </Col>
+      <Col xs={12} md={6} lg={2}>
+        <h5>Earn monet with us</h5>
+        <div className="text-secondary">
+          <small>Sells in</small>
+          <small>Affiliates programs</small>
+          <small>Advertise your products</small>
         </div>
-      </section>
-      <section>
-        <h1>Logo de la tienda</h1>
-        <div>
-            <span>México</span>
-            <span>Colombia</span>
-            <span>Venezuela</span>
-            <span>Argentina</span>
-            <span>Uruguay</span>
-            <span>Brasil</span>
-            <span>Web Services</span>
+
+      </Col>
+      <Col xs={12} md={6} lg={2}>
+        <h5>Methods of payment</h5>
+        <div className='text-secondary'>
+          <small>Credit & debit cards</small>
+          <small>Gift card</small>
+          <small>Cash payment</small>
+          <small>Months without fee</small>
         </div>
-        <div>
-            <span>Condiciones de uso</span>
-            <span>Aviso de privacidad</span>
+      </Col>
+      
+
+      <Col xs={12} md={12} lg={2}>
+        <h5>Info</h5>
+        <div className='text-secondary'>
+          <small>Web Services</small>
+          <small>Terms & Condiciones</small>
+          <small>Privacy Police</small>
         </div>
-      </section>
-    </div>
+
+      </Col>
+      <Col xs={12} md={6} lg={2}>
+        <h5>Countries</h5>
+        <div className='text-secondary'>
+          <small>México</small>
+          <small>Colombia</small>
+          <small>Venezuela</small>
+          <small>Argentina</small>
+          <small>Uruguay</small>
+          <small>Brasil</small>
+        </div>
+      </Col>
+      <div className='rights-container'>
+        <small>Copyrigth - All rights reserved © 2022</small>
+      </div>
+    </Row >
   )
 }
 
