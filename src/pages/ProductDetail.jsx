@@ -99,6 +99,8 @@ const ProductDetail = () => {
           <p className="products-related-title">Products related </p>
           {infoProduct.map((info) => (
             <ListGroup.Item action key={info.id}>
+              
+              <Link onClick={() => setChangeImg(info.productImgs?.[0])} className="list-group-text" to={`/product/${info.id}`}>
               <div className="products-related"
                 style={{
                   width: "180px",
@@ -109,7 +111,6 @@ const ProductDetail = () => {
                 }}
               >
               </div>
-              <Link onClick={() => setChangeImg(info.productImgs?.[0])} className="list-group-text" to={`/product/${info.id}`}>
                 {info.title}
               </Link>
             </ListGroup.Item>
