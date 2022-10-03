@@ -18,28 +18,45 @@ const ProductDetail = () => {
     (product) => product.category.id === productDetail.category.id
   );
   console.log(productList);
+
+  const [changeImg, setChangeImg] = useState(productDetail?.productImgs[0]);
+console.log(changeImg);
+console.log(productDetail);
+ 
   return (
-    <Row  >
-      <Col className="details" >
+    <Row>
+      <Col className="details">
         {/* <h1>This is the product number: <b>{id}</b></h1> */}
-       
-        <h1>{productDetail?.title}</h1>
 
-        <Row >
-
-          <Col className="related-items" lg={3} ml-1 >
-            
+        <h1 className="product-name">{productDetail?.title}</h1>
+        <Row>
+          <Col className="related-items" xs={1} md={4} lg={4} ml-1>
             {productDetail?.productImgs.map((img) => (
-              <Row className="views"
-               key={img}
-                style={{ backgroundImage:`url(${img})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', width: "80px", height:"90px"}}>
-              </Row>
+              <Row
+              onClick={()=> setChangeImg(img)}
+                className="views"
+                key={img}
+                style={{
+                  backgroundImage: `url(${img})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  width: "80px",
+                  height: "90px",
+                }}
+              ></Row>
             ))}
           </Col>
-          <Col className="principal-img"  >
-          <Container 
-          style={{backgroundImage:`url(${productDetail?.productImgs[0]})`, backgroundSize:"contain", width:"100px", height:"250px", backgroundRepeat:"no-repeat" }}>
-          </Container>
+          <Col className="principal-img">
+            <Container
+            className="main-img"
+              style={{
+                backgroundImage:`url(${changeImg})` ,
+                backgroundSize: "contain",
+                width: "250px",
+                height: "250px",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></Container>
           </Col>
         </Row>
 
@@ -47,15 +64,20 @@ const ProductDetail = () => {
         {showDescription ? (
           <>
             <button
-             className="show-info-details"
+              className="show-info-details"
               onClick={() => setShowDescription(!showDescription)}
             >
               Description <i className="fa-solid fa-chevron-down"></i>
             </button>
             <p>{infoProduct[0]?.description}</p>
-            <span> {productDetail.status === "active" ?  <strong>Stock: Available</strong>  : <strong>Stock: 0</strong>}
+            <span>
+              {" "}
+              {productDetail.status === "active" ? (
+                <strong>Stock: Available</strong>
+              ) : (
+                <strong>Stock: 0</strong>
+              )}
             </span>
-          
           </>
         ) : (
           <button
@@ -67,22 +89,25 @@ const ProductDetail = () => {
         )}
       </Col>
 
-{/* related */}
+      {/* related */}
       <Col className="products-related-container" lg={2}>
-        <ListGroup >
-            <p className="products-related-title">Products related </p>
+        <ListGroup>
+          <p className="products-related-title">Products related </p>
           {infoProduct.map((info) => (
             <ListGroup.Item action key={info.id}>
-              <Link
-              className="list-group-text" to={`/product/${info.id}`}>
-                <img
-               style={{width:"60px", height:"150px"}}
-                  className="img-fluid"
-                  src={info.productImgs?.[0]}
-                  alt="product-img"
-                />
-                {info.title}
-              </Link>
+              <div className="products-related"
+                style={{
+                  width: "180px",
+                  height: "100px",
+                  backgroundImage: `url(${info.productImgs?.[0]})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "contain",
+                }}
+              >
+              </div>
+                <Link className="list-group-text" to={`/product/${info.id}`}>
+                  {info.title}
+                </Link>
             </ListGroup.Item>
           ))}
         </ListGroup>

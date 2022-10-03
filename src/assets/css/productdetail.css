@@ -1,20 +1,22 @@
+.product-name{
+    margin: 0 auto 1rem;
+    width: 90%;
+    text-align: justify;
+
+}
 .show-info-details {
   
   height: 2rem;
   width: 50%;
   border: none;
 } 
-.principal-img{
-    display: flex;
-    justify-content: center;
-    align-content: center;
+
+.main-img{
+    background-position-y: 3rem;
+
 }
 .principal-img{
-    padding: 1rem;
-    margin-top: 1rem;
-    --bs-gutter-y:2rem;
-    background-color:white;
-    border: 1rem;
+    background-color: white;
 }
 .related-items{
     background-color: white;
@@ -26,33 +28,52 @@
    border-radius: 1rem;
    flex-wrap: nowrap;
    column-gap: 3rem;
-   margin: 0 auto;
+   margin: 4rem auto;
    padding: 0;
   
 }
 .list-group{
 background-color: white;
-    width: 250px;
+    width: 300px;
     margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
    
   
 }
 .list-group-text{
     text-decoration: none;
     color: black;
+    width: 50px;
+    text-align: right;
 }
-.img-fluid{
-    margin-right: 5px;
+.products-related{
+    background-position-x: 0rem;
+    margin: 0 auto;
 }
+
 .products-related-title{
     margin: .5rem auto;
     width: 50%;
     height: 1rem;
-  
 }
 .col-lg-2{
 margin-bottom: 1rem;
 }
 .details-col{
     background-color:white;
+}
+.list-group-item{
+    height: 180px;
+    margin: 0rem auto;
+}
+
+@media screen and (min-widht: 1024px) {
+    .col-lg-4{
+        display: flex;
+        flex-direction: column;
+
+    }
+    
 }
