@@ -63,7 +63,7 @@ const navigate = useNavigate();
         </div>
       </Col>
       <div className='rights-container'>
-        <small>Copyrigth - All rights reserved © 2022</small>
+        <p>Copyrigth - All rights reserved © 2022</p>
       </div>
     </Row >
   )
