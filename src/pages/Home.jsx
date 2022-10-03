@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import '../assets/css/Home.css'
 import { useNavigate } from 'react-router-dom';
-import { Button, InputGroup, Form, Row, Col, ListGroup, Card } from 'react-bootstrap';
+import { Button, InputGroup, Form, Row, Col, ListGroup, Card, Dropdown } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -37,34 +37,28 @@ const Home = () => {
 
     return (
         <Row>
-            <Col  lg={3}>
-                {/* <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        Dropdown Button
+            <Col lg={3}>
+                <Dropdown>
+                    <Dropdown.Toggle>
+                        Categories
                     </Dropdown.Toggle>
 
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    <Dropdown.Menu onClick={() => scrollTo(0, 0)}>
+                        <Dropdown.Item action onClick={() => setNewFiltered(products)}>
+                            All categories
+                        </Dropdown.Item>
+                        {
+                            categories?.map(category =>
+
+                            (
+                                <Dropdown.Item action key={category.id} onClick={() => filterCategory(category.id)}>
+                                    {category.name}
+                                </Dropdown.Item>
+                            )
+                            )
+                        }
                     </Dropdown.Menu>
-                </Dropdown> */}
-                <ListGroup>
-                    <ListGroup.Item action onClick={() => setNewFiltered(products)}>
-                        All categories
-                    </ListGroup.Item>
-                    {
-                        categories?.map(category =>
-
-                        (
-                            <ListGroup.Item action key={category.id} onClick={() => filterCategory(category.id)}>
-                                {category.name}
-                            </ListGroup.Item>
-                        )
-                        )
-                    }
-                </ListGroup>
-
+                </Dropdown>
             </Col>
 
             <Col>
