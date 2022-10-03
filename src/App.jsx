@@ -26,7 +26,7 @@ function App() {
       <div className="App">
         <Navigation />
         {isLoading && <Loader />}
-        <Container className='mt-5'>
+        <Container className='mt-2' >
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />

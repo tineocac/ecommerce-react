@@ -35,7 +35,7 @@ const Home = () => {
 
     return (
         <Row>
-            <Col lg={3} className='dropdown-position'>
+            <Col lg={1} className='dropdown-position'>
                 <Dropdown>
                     <Dropdown.Toggle>
                         Categories
@@ -60,7 +60,6 @@ const Home = () => {
             </Col>
 
             <Col>
-                <h1>This is my Home component</h1>
                 <InputGroup className="mb-3">
                     <Form.Control
                         placeholder="type name product here" value={textInput} onChange={e => setTexInput(e.target.value)}

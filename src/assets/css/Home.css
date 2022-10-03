@@ -1,36 +1,32 @@
-.list-group-item {
-  width: fit-content;
-}
-
+/*===== DROPDOWN =====*/
 .dropdown-position {
   position: sticky;
   height: fit-content;
   top: 0;
   left: 0;
   z-index: 10;
-  width: 10px;
+  width: fit-content !important;
+  padding: 0 !important;
 }
 .dropdown {
-  display: flex;
-  justify-content: center;
 }
-/*===== CARDS ======*/
 
+/*===== CARDS ======*/
 .g-4 {
   justify-content: center;
-  align-items: center;
   margin-bottom: 1.5em;
 }
 
 .container-card {
-  width: 300px !important;
+  /* width: 300px !important; */
   height: 300px;
 }
 
 .card {
-  padding: .5em 0;
+  padding: 0.5em 0;
   display: flex;
   align-items: center;
+  filter: drop-shadow(5px 5px 5px rgba(5, 7, 12, 1));
 }
 
 .container-product {
@@ -38,6 +34,12 @@
   height: 100%;
   display: flex;
   background-position: center;
+  transition: 0.1s;
+}
+
+.container-product:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
 }
 
 .add-cart {
@@ -46,14 +48,17 @@
   border-radius: 1em;
   padding: 0.2em 1em;
   color: #fff;
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 .add-cart:hover {
   background: #004f9a;
 }
 
-.card-title:hover{
-    color: #4582ec;
+.card-title:hover {
+  color: #4582ec;
 }
 
+.card-body {
+  width: 100%;
+}
