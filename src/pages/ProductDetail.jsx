@@ -20,20 +20,22 @@ const ProductDetail = () => {
   console.log(productList);
 
   const [changeImg, setChangeImg] = useState(productDetail?.productImgs[0]);
-console.log(changeImg);
-console.log(productDetail);
- 
+  console.log(changeImg);
+  console.log(productDetail);
+
   return (
     <Row>
-      <Col className="details">
-        {/* <h1>This is the product number: <b>{id}</b></h1> */}
 
+      {/* ===== PRODUCT DETAIL ====== */}
+      <Col className="details">
         <h1 className="product-name">{productDetail?.title}</h1>
+
         <Row>
-          <Col className="related-items" xs={1} md={4} lg={4} ml-1>
+          {/* ===== OTHER IMAGES PRODUCT DETAIL (small images) ===== */}
+          <Col xs={10} md={4} lg={4} ml-1>
             {productDetail?.productImgs.map((img) => (
               <Row
-              onClick={()=> setChangeImg(img)}
+                onClick={() => setChangeImg(img)}
                 className="views"
                 key={img}
                 style={{
@@ -46,11 +48,13 @@ console.log(productDetail);
               ></Row>
             ))}
           </Col>
+
+          {/* ===== PRINCIPAL IMAGE PRODUCT ====== */}
           <Col className="principal-img">
             <Container
-            className="main-img"
+              className="main-img"
               style={{
-                backgroundImage:`url(${changeImg})` ,
+                backgroundImage: `url(${changeImg})`,
                 backgroundSize: "contain",
                 width: "250px",
                 height: "250px",
@@ -60,7 +64,7 @@ console.log(productDetail);
           </Col>
         </Row>
 
-        {/* Description */}
+        {/* ====== DESCRIPTION ====== */}
         {showDescription ? (
           <>
             <button
@@ -89,7 +93,7 @@ console.log(productDetail);
         )}
       </Col>
 
-      {/* related */}
+      {/* ====== PRODUCTS RELATED ======*/}
       <Col className="products-related-container" lg={2}>
         <ListGroup>
           <p className="products-related-title">Products related </p>
@@ -105,13 +109,14 @@ console.log(productDetail);
                 }}
               >
               </div>
-                <Link className="list-group-text" to={`/product/${info.id}`}>
-                  {info.title}
-                </Link>
+              <Link onClick={() => setChangeImg(info.productImgs?.[0])} className="list-group-text" to={`/product/${info.id}`}>
+                {info.title}
+              </Link>
             </ListGroup.Item>
           ))}
         </ListGroup>
       </Col>
+
     </Row>
   );
 };
