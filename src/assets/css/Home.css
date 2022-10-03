@@ -12,7 +12,7 @@
     width: fit-content;
 }
 
-.col-lg-3{
+.dropdown-position{
     position: sticky;
     height: fit-content;
     top: 0;
@@ -23,5 +23,4 @@
 .dropdown{
     display: flex;
     justify-content: center;
-
 }

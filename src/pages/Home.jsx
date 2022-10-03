@@ -37,7 +37,7 @@ const Home = () => {
 
     return (
         <Row>
-            <Col lg={3}>
+            <Col lg={3} className='dropdown-position'>
                 <Dropdown>
                     <Dropdown.Toggle>
                         Categories
