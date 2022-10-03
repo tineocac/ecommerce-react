@@ -11,3 +11,17 @@
 .list-group-item{
     width: fit-content;
 }
+
+.col-lg-3{
+    position: sticky;
+    height: fit-content;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 10px
+}
+.dropdown{
+    display: flex;
+    justify-content: center;
+
+}
