@@ -32,8 +32,6 @@ const Home = () => {
         setNewFiltered(filtered)
     }
 
-    // console.log(newFiltered[0]?.productImgs
-    //     );
 
     return (
         <Row>
@@ -43,7 +41,7 @@ const Home = () => {
                         Categories
                     </Dropdown.Toggle>
 
-                    <Dropdown.Menu onClick={() => scrollTo(0, 0)}>
+                    <Dropdown.Menu onClick={() => window.scrollTo(0, 0)}>
                         <Dropdown.Item action onClick={() => setNewFiltered(products)}>
                             All categories
                         </Dropdown.Item>
@@ -73,7 +71,7 @@ const Home = () => {
                 </InputGroup>
                 <Row xs={1} md={2} xl={3} className="g-4">
                     {newFiltered.map(product => (
-                        <Col key={product.id}>
+                        <Col className='container-card' key={product.id}>
                             <Card onClick={() => navigate(`/product/${product.id}`)} style={{ height: '100%', cursor: 'pointer' }}>
 
                                 <div className='container-product'
@@ -81,12 +79,19 @@ const Home = () => {
 
                                 >
                                 </div>
-
+                                <div className='add-cart'>
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                </div>
 
                                 <Card.Body>
-                                    <Card.Title>{product.title}</Card.Title>
-                                    <Card.Text>
-                                    </Card.Text>
+
+                                    <small className='card-title'>{product.title}</small>
+
+
+                                    <strong>
+
+                                        ${product.price}
+                                    </strong>
                                 </Card.Body>
                             </Card>
                         </Col>
