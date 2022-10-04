@@ -1,6 +1,7 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
-import { Col, Container, ListGroup, Row } from "react-bootstrap";
+import { Col, Container, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import productdetail from "../assets/css/productdetail.css";
@@ -10,7 +11,7 @@ const ProductDetail = () => {
 
   const { id } = useParams();
   const productList = useSelector((state) => state.products);
-
+  const isLoading = useSelector((state) => state.isLoading);
   const productDetail = productList.find(
     (product) => product.id === Number(id)
   );
@@ -20,36 +21,45 @@ const ProductDetail = () => {
   console.log(productList);
 
   const [changeImg, setChangeImg] = useState(productDetail?.productImgs[0]);
+
+  useEffect(() => {
+    setChangeImg(productDetail?.productImgs[0]);
+  }, [isLoading]);
+
   console.log(changeImg);
   console.log(productDetail);
 
   return (
-    <Row>
-
+    <Col s={1} md={4} lg={1}>
       {/* ===== PRODUCT DETAIL ====== */}
-      <Col className="details">
+      {/* <Col className="details"> */}
         <h1 className="product-name">{productDetail?.title}</h1>
 
-        <Row>
+        <Col xs={1} md={4} lg={1}>
           {/* ===== OTHER IMAGES PRODUCT DETAIL (small images) ===== */}
-          <Col xs={12} md={4} lg={2} ml-1>
+          <ListGroup>
             {productDetail?.productImgs.map((img) => (
-              <Row
+              <ListGroupItem
                 className="views"
                 onClick={() => setChangeImg(img)}
-                key={img}>
-                <img className="img-views" src={img}/>
-              </Row>
+                key={img}
+              >
+                <Link style={{ textDecoration: "none" }}>
+                  <div className="products-related">
+                    <img className="imgs-related" src={img} />
+                  </div>
+                </Link>
+              </ListGroupItem>
             ))}
-          </Col>
+          </ListGroup>
 
           {/* ===== PRINCIPAL IMAGE PRODUCT ====== */}
-          <Col >
-            <Container className="principal-img">
-              <img style={{objetfit:"contain"}} src={changeImg}/>
+          <Col>
+            <Container className="principal-img-container">
+              <img style={{ objetfit: "contain" }} src={changeImg} />
             </Container>
           </Col>
-        </Row>
+        </Col>
 
         {/* ====== DESCRIPTION ====== */}
         {showDescription ? (
@@ -78,7 +88,7 @@ const ProductDetail = () => {
             Description <i className="fa-solid fa-chevron-down"></i>
           </button>
         )}
-      </Col>
+      {/* </Col> */}
 
       {/* ====== PRODUCTS RELATED ======*/}
       <Col className="products-related-container" lg={2}>
@@ -86,21 +96,21 @@ const ProductDetail = () => {
           <p className="products-related-title">Products related </p>
           {infoProduct.map((info) => (
             <ListGroup.Item action key={info.id}>
-              
-              <Link style={{textDecoration:"none"}} onClick={() => setChangeImg(info.productImgs?.[0])}  to={`/product/${info.id}`}>
-              <div className="products-related">
-                <img className="imgs-related" src={info.productImgs?.[0]}/>
-              </div>
-                <p className="products-related-name">
-                {info.title}
-                  </p>
+              <Link
+                style={{ textDecoration: "none" }}
+                onClick={() => setChangeImg(info.productImgs?.[0])}
+                to={`/product/${info.id}`}
+              >
+                <div className="products-related">
+                  <img className="imgs-related" src={info.productImgs?.[0]} />
+                </div>
+                <p className="products-related-name">{info.title}</p>
               </Link>
             </ListGroup.Item>
           ))}
         </ListGroup>
       </Col>
-
-    </Row>
+    </Col>
   );
 };
 

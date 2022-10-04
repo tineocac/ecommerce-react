@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, InputGroup, Form, Row, Col, ListGroup, Card, Dropdown, Carousel } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import holiday from '../assets/images/holiday.jpg'
+import homeImg from '../assets/images/homeImg.webp'
 import days from '../assets/images/days.jpg'
 import BlackFriday from '../assets/images/BlackFriday.png'
 
@@ -42,7 +42,7 @@ const Home = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-        src={holiday}
+        src={homeImg}
         alt="BlackFriday "
         />
       </Carousel.Item>
