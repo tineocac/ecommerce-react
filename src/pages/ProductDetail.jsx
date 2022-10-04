@@ -32,35 +32,22 @@ const ProductDetail = () => {
 
         <Row>
           {/* ===== OTHER IMAGES PRODUCT DETAIL (small images) ===== */}
-          <Col xs={10} md={4} lg={4} ml-1>
+          <Col xs={12} md={4} lg={2} ml-1>
             {productDetail?.productImgs.map((img) => (
               <Row
-                onClick={() => setChangeImg(img)}
                 className="views"
-                key={img}
-                style={{
-                  backgroundImage: `url(${img})`,
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  width: "80px",
-                  height: "90px",
-                }}
-              ></Row>
+                onClick={() => setChangeImg(img)}
+                key={img}>
+                <img className="img-views" src={img}/>
+              </Row>
             ))}
           </Col>
 
           {/* ===== PRINCIPAL IMAGE PRODUCT ====== */}
-          <Col className="principal-img">
-            <Container
-              className="main-img"
-              style={{
-                backgroundImage: `url(${changeImg})`,
-                backgroundSize: "contain",
-                width: "250px",
-                height: "250px",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></Container>
+          <Col >
+            <Container className="principal-img">
+              <img style={{objetfit:"contain"}} src={changeImg}/>
+            </Container>
           </Col>
         </Row>
 
@@ -71,7 +58,7 @@ const ProductDetail = () => {
               className="show-info-details"
               onClick={() => setShowDescription(!showDescription)}
             >
-              Description <i className="fa-solid fa-chevron-down"></i>
+              Description <i className="fa-solid fa-chevron-up"></i>
             </button>
             <p>{infoProduct[0]?.description}</p>
             <span>
@@ -100,18 +87,13 @@ const ProductDetail = () => {
           {infoProduct.map((info) => (
             <ListGroup.Item action key={info.id}>
               
-              <Link onClick={() => setChangeImg(info.productImgs?.[0])} className="list-group-text" to={`/product/${info.id}`}>
-              <div className="products-related"
-                style={{
-                  width: "180px",
-                  height: "100px",
-                  backgroundImage: `url(${info.productImgs?.[0]})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "contain",
-                }}
-              >
+              <Link style={{textDecoration:"none"}} onClick={() => setChangeImg(info.productImgs?.[0])}  to={`/product/${info.id}`}>
+              <div className="products-related">
+                <img className="imgs-related" src={info.productImgs?.[0]}/>
               </div>
+                <p className="products-related-name">
                 {info.title}
+                  </p>
               </Link>
             </ListGroup.Item>
           ))}

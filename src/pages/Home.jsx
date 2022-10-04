@@ -1,9 +1,12 @@
 import { useSelector } from 'react-redux';
 import '../assets/css/Home.css'
 import { useNavigate } from 'react-router-dom';
-import { Button, InputGroup, Form, Row, Col, ListGroup, Card, Dropdown } from 'react-bootstrap';
+import { Button, InputGroup, Form, Row, Col, ListGroup, Card, Dropdown, Carousel } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import holiday from '../assets/images/holiday.jpg'
+import days from '../assets/images/days.jpg'
+import BlackFriday from '../assets/images/BlackFriday.png'
 
 const Home = () => {
 
@@ -35,6 +38,32 @@ const Home = () => {
 
     return (
         <Row>
+             <Carousel >
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+        src={holiday}
+        alt="BlackFriday "
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={BlackFriday}
+          alt="Halloween  sale"
+        />
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={days}
+          alt="sale"
+        />
+
+      </Carousel.Item>
+    </Carousel>
+            
             <Col lg={1} className='dropdown-position'>
                 <Dropdown>
                     <Dropdown.Toggle>

@@ -1,75 +1,93 @@
 .product-name {
-  margin: 0 auto 1rem;
-  width: 90%;
+  margin: 2rem auto 2rem;
+  width: 60%;
   text-align: justify;
+  color: black;
 }
+
 .show-info-details {
+  margin-top: 2em;
   height: 2rem;
   width: 50%;
   border: none;
+  border-radius: 1rem;
 }
 
-.main-img {
-  background-position-y: 3rem;
-}
 .principal-img {
+  width: 81%;
+  height: 390px;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  filter: drop-shadow(5px 5px 5px rgba(5, 7, 12, 1))
 }
+.products-related-title {
+  margin: 0rem auto;
+  padding: .5rem;
+  color: #001F76;
+  background-color: white;
+  width: 100%;
+  text-align: ;
+} 
+.products-related {
+  object-fit: contain;
+  margin: 0 auto;
+  width: 80px;
+}
+.products-related-name{
+  color: black;
+  text-decoration: none;
+  width: 140px;
+  text-align: center;
+  margin: 1rem auto;
+}
+.imgs-related{
+  width: 80px;
+}
+.list-group {
+  background-color: white;
+  margin: 7.5rem auto;
+  filter: drop-shadow(5px 5px 5px rgba(5, 7, 12, 1))
+}
+.views{
+  object-fit: contain;
+  width: 165px;
+}
+.img-views{
+
+}
+/* .list-group-item {
+  height: 180px;
+  margin: 0rem auto;
+} 
 
 /* ===== this styles were deleted ===== */
 
 /* .related-items{
-    background-color: white;
-    display: flex;
+  background-color: white;
+  display: flex;
     justify-content: center;
-   align-items: center;
-   align-content: center;
-   height: 100px;
-   border-radius: 1rem;
+    align-items: center;
+    align-content: center;
+    height: 100px;
+    border-radius: 1rem;
    flex-wrap: nowrap;
    column-gap: 3rem;
    margin: 4rem auto;
    padding: 0;
+  } */
+  
+
+
+
+
+/* .col-lg-2 {
+  margin-bottom: 1rem;
+} */
+/* .details-col {
+  background-color: white;
 } */
 
-.list-group {
-  background-color: white;
-  width: 300px;
-  margin: 1rem auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.list-group-text {
-  text-decoration: none;
-  color: black;
-  width: 50px;
-  text-align: right;
-}
-.products-related {
-  background-position-x: 0rem;
-  margin: 0 auto;
-}
 
-.products-related-title {
-  margin: 0.5rem auto;
-  width: 50%;
-  height: 1rem;
-}
-.col-lg-2 {
-  margin-bottom: 1rem;
-}
-.details-col {
-  background-color: white;
-}
-.list-group-item {
-  height: 180px;
-  margin: 0rem auto;
-}
-
-@media screen and (min-widht: 1024px) {
-  .col-lg-4 {
-    display: flex;
-    flex-direction: column;
-  }
-}

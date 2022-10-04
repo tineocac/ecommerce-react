@@ -17,7 +17,8 @@ body::after {
 
 .App{
   min-height: 100vh;
-  background-color: #F5F8FF;
+
+  background:linear-gradient(#001F76, #F5F8FF) 
 }
 
 footer {
