@@ -6,6 +6,7 @@ import './assets/css/App.css'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
 import Navigation from './components/Navigation'
+import ProtectedRoutes from './components/ProtectedRoutes'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import ProductDetail from './pages/ProductDetail'
@@ -31,7 +32,10 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/product/:id' element={<ProductDetail />} />
-            <Route path='/purschases' element={<Purschases />} />
+
+            <Route element={<ProtectedRoutes />}>
+              <Route path='/purschases' element={<Purschases />} />
+            </Route>
           </Routes>
         </Container>
         <footer>

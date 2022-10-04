@@ -108,7 +108,7 @@ const Home = () => {
                                 >
                                 </div>
                                 <div className='add-cart'>
-                                    <i class="fa-solid fa-cart-plus"></i>
+                                    <i className="fa-solid fa-cart-plus"></i>
                                 </div>
 
                                 <Card.Body>

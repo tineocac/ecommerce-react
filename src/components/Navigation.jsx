@@ -7,6 +7,12 @@ import Cart from './Cart';
 import '../assets/css/Navigations.css'
 
 const Navigation = () => {
+
+    const logout = () => {
+        alert('testing')
+        localStorage.setItem('token', '')
+    }
+
     return (
         <Navbar bg="primary" variant='dark' expand="lg">
             <Container>
@@ -18,6 +24,7 @@ const Navigation = () => {
                         <Nav.Link to='/login' as={Link}>Login</Nav.Link>
                         <Nav.Link to='/purschases' as={Link}>Purschases</Nav.Link>
                         <Nav.Link>{<Cart />}</Nav.Link>
+                        <Nav.Link onClick={logout} to={'/login'} as={Link}>Logout</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
