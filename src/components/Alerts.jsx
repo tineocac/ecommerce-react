@@ -11,7 +11,7 @@ const Alerts = ({showSucces, handleCloseSucces}) => {
             <Modal.Footer>
                 <Button variant="secondary" onClick={() => {
                     handleCloseSucces()
-                    login(true)
+                    location.reload()
                 }}>
                     Close
                 </Button>

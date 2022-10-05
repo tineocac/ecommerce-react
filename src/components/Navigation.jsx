@@ -22,10 +22,13 @@ const Navigation = () => {
     alert("testing");
     localStorage.setItem("token", "");
     setIsLogin(false);
+    location.reload()
   };
+
 
   const token = localStorage.getItem("token");
   const [isLogin, setIsLogin] = useState(token);
+  
 
 
   return (

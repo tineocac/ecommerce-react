@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Alerts from './Alerts';
 
-const Login = ({ login, showLogin, handleCloseLogin }) => {
+const Login = ({  showLogin, handleCloseLogin }) => {
 
     const [showSucces, setShowSucces] = useState(false);
     const handleCloseSucces = () => setShowSucces(false);
@@ -24,7 +24,7 @@ const Login = ({ login, showLogin, handleCloseLogin }) => {
                 handleCloseLogin()
                 clear()
                 handleShowSucces()
-                login(true)
+                
             })
             .catch(error => {
                 if (error.response.status === 404) {
