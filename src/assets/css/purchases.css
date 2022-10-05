@@ -1,0 +1,10 @@
+.card{
+    background-color: aqua;
+   
+}
+.purchases-container{
+    margin-top: 1rem;
+}
+/* fit-content 
+src={cardProductImg({product.id})}npm run d
+*/
