@@ -55,47 +55,9 @@
   filter: drop-shadow(5px 5px 5px rgba(5, 7, 12, 1))
 }
 
-.views{
-  object-fit: contain;
-  width: 165px;
-}
 .contain-per-otherimg{
   width: 50px;
   height: 50px;
 }
-/* .img-views{
-
-} */
-/* .list-group-item {
-  height: 180px;
-  margin: 0rem auto;
-} 
-
-/* ===== this styles were deleted ===== */
-
-/* .related-items{
-  background-color: white;
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    height: 100px;
-    border-radius: 1rem;
-   flex-wrap: nowrap;
-   column-gap: 3rem;
-   margin: 4rem auto;
-   padding: 0;
-  } */
-  
-
-
-
-
-/* .col-lg-2 {
-  margin-bottom: 1rem;
-} */
-/* .details-col {
-  background-color: white;
-} */
 
 

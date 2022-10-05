@@ -30,36 +30,54 @@ const ProductDetail = () => {
   console.log(productDetail);
 
   return (
-    <Col s={1} md={4} lg={1}>
+    <Row>
       {/* ===== PRODUCT DETAIL ====== */}
-      {/* <Col className="details"> */}
+      <Col lg={12}>
         <h1 className="product-name">{productDetail?.title}</h1>
 
-        <Col xs={1} md={4} lg={1}>
+        <Row>
           {/* ===== OTHER IMAGES PRODUCT DETAIL (small images) ===== */}
-          <ListGroup>
-            {productDetail?.productImgs.map((img) => (
-              <ListGroupItem
-                className="views"
-                onClick={() => setChangeImg(img)}
-                key={img}
-              >
-                <Link style={{ textDecoration: "none" }}>
-                  <div className="products-related">
-                    <img className="imgs-related" src={img} />
-                  </div>
-                </Link>
-              </ListGroupItem>
-            ))}
-          </ListGroup>
+          <Col className="products-related-container" lg={2}>
+            <ListGroup>
+              {productDetail?.productImgs.map((img) => (
+                <ListGroupItem onClick={() => setChangeImg(img)} key={img}>
+                  <Link style={{ textDecoration: "none" }}>
+                    <div className="products-related">
+                      <img className="imgs-related" src={img} />
+                    </div>
+                  </Link>
+                </ListGroupItem>
+              ))}
+            </ListGroup>
+          </Col>
 
           {/* ===== PRINCIPAL IMAGE PRODUCT ====== */}
-          <Col>
+          <Col lg={7}>
             <Container className="principal-img-container">
               <img style={{ objetfit: "contain" }} src={changeImg} />
             </Container>
           </Col>
-        </Col>
+          {/* ====== PRODUCTS RELATED ======*/}
+      <Col className="products-related-container" lg={2}>
+        <ListGroup>
+          <p className="products-related-title">Products related </p>
+          {infoProduct.map((info) => (
+            <ListGroup.Item action key={info.id}>
+              <Link
+                style={{ textDecoration: "none" }}
+                onClick={() => setChangeImg(info.productImgs?.[0])}
+                to={`/product/${info.id}`}
+              >
+                <div className="products-related">
+                  <img className="imgs-related" src={info.productImgs?.[0]} />
+                </div>
+                <p className="products-related-name">{info.title}</p>
+              </Link>
+            </ListGroup.Item>
+          ))}
+        </ListGroup>
+      </Col>
+        </Row>
 
         {/* ====== DESCRIPTION ====== */}
         {showDescription ? (
@@ -88,29 +106,10 @@ const ProductDetail = () => {
             Description <i className="fa-solid fa-chevron-down"></i>
           </button>
         )}
-      {/* </Col> */}
-
-      {/* ====== PRODUCTS RELATED ======*/}
-      <Col className="products-related-container" lg={2}>
-        <ListGroup>
-          <p className="products-related-title">Products related </p>
-          {infoProduct.map((info) => (
-            <ListGroup.Item action key={info.id}>
-              <Link
-                style={{ textDecoration: "none" }}
-                onClick={() => setChangeImg(info.productImgs?.[0])}
-                to={`/product/${info.id}`}
-              >
-                <div className="products-related">
-                  <img className="imgs-related" src={info.productImgs?.[0]} />
-                </div>
-                <p className="products-related-name">{info.title}</p>
-              </Link>
-            </ListGroup.Item>
-          ))}
-        </ListGroup>
       </Col>
-    </Col>
+
+      
+    </Row>
   );
 };
 
