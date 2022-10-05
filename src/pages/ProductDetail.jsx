@@ -30,10 +30,13 @@ const ProductDetail = () => {
         <h1 className="product-name">{productDetail?.title}</h1>
 
         {/* ===== OTHER IMAGES PRODUCT DETAIL (small images) ===== */}
-        <Carousel className="carousel-container">
+        <Carousel style={{backgroundColor:"white", borderRadius:"1rem",filter: "drop-shadow(5px 5px 5px rgba(5, 7, 12, 1))"}} fade className="carousel-container">
           {productDetail?.productImgs.map((img) => (
-            <Carousel.Item className="carousel-item" key={img}>
-              <img className="d-block w-100" src={img} alt="First slide" />
+            <Carousel.Item 
+            className="carousel-item" key={img}>
+              <div style={{margin:" 0 auto",width: "500px", height:"350px", backgroundImage:`url(${img})`, backgroundRepeat:"no-repeat", backgroundSize:"contain",
+            backgroundPosition:"center"}}>
+              </div>
             </Carousel.Item>
           ))}
         </Carousel>
@@ -44,7 +47,6 @@ const ProductDetail = () => {
           <>
             <button
               className="show-info-details"
-              onClick={() => setShowDescription(!showDescription)}
             >
               {" "}
               Description
@@ -64,9 +66,7 @@ const ProductDetail = () => {
           </>
         ) : (
           <button
-            className="show-info-details"
-            onClick={() => setShowDescription(!showDescription)}
-          >
+            className="show-info-details">
             Description <i className="fa-solid fa-chevron-down"></i>
           </button>
         )}
