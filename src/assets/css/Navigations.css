@@ -6,7 +6,7 @@
     width: fit-content;
 }
 
-.cart{
+/* .proof{
     color: rgba(255, 255, 255, 0.6)!important;
     --bs-btn-color: #d2e6f9;
     --bs-btn-hover-bg: transparent!important;
@@ -17,6 +17,10 @@
     display: flex !important;
 }
 
-.cart:hover{
+.proof:hover{
     color: #fff !important;
+} */
+
+.fa-square-check{
+    color: #4582ec;
 }

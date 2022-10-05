@@ -8,7 +8,6 @@ import Loader from './components/Loader'
 import Navigation from './components/Navigation'
 import ProtectedRoutes from './components/ProtectedRoutes'
 import Home from './pages/Home'
-import Login from './pages/Login'
 import ProductDetail from './pages/ProductDetail'
 import Purschases from './pages/Purschases'
 import { productsThunk } from './store/slices/products.slice'
@@ -30,7 +29,6 @@ function App() {
         <Container className='mt-2' >
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
             <Route path='/product/:id' element={<ProductDetail />} />
 
             <Route element={<ProtectedRoutes />}>
