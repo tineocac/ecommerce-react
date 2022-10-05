@@ -3,41 +3,28 @@ import React, { useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import Alerts from './Alerts';
 
-const Login = ({ login }) => {
+const Login = ({ login, showLogin, handleCloseLogin }) => {
 
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [showSucces, setShowSucces] = useState(false);
+    const handleCloseSucces = () => setShowSucces(false);
+    const handleShowSucces = () => setShowSucces(true);
 
     const { register, handleSubmit, reset } = useForm();
     const navigate = useNavigate();
 
-    const [show2, setShow2] = useState(false);
-
-    const handleClose2 = () => setShow2(false);
-    const handleShow2 = () => setShow2(true);
-
-
-
     const submit = (data) => {
-        // console.log(data);
+
         axios
             .post('https://ecommerce-api-react.herokuapp.com/api/v1/users/login', data)
             .then(res => {
-                // console.log(res.data);
-                // alert('Succes')
                 localStorage.setItem('token', res.data.data.token)
                 navigate('/')
-                handleClose()
+                handleCloseLogin()
                 clear()
-                handleShow2()
-                 
-
-
-
-
+                handleShowSucces()
+                login(true)
             })
             .catch(error => {
                 if (error.response.status === 404) {
@@ -46,7 +33,7 @@ const Login = ({ login }) => {
                 console.log(error.response)
             })
 
-            
+
     }
 
     const clear = () => {
@@ -58,11 +45,7 @@ const Login = ({ login }) => {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
-                Login
-            </Button>
-
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={showLogin} onHide={handleCloseLogin}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
@@ -93,21 +76,7 @@ const Login = ({ login }) => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-
-            <Modal show={show2} onHide={handleClose2} animation={false}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Successful login <i className="fa-regular fa-square-check"></i></Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Enjoy your shopping</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={() => {
-                        handleClose2()
-                        login(true)
-                        }}>
-                        Close
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+            <Alerts showSucces={showSucces} handleCloseSucces={handleCloseSucces} />
         </>
     );
 };
