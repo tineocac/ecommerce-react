@@ -25,9 +25,12 @@ const Navigation = () => {
                     <Nav className="me-auto">
                         <Nav.Link to='/' as={Link}>Home</Nav.Link>
                         <Nav.Link to='/purschases' as={Link}>Purschases</Nav.Link>
+                        {
+                            isLogin ? <Nav.Link onClick={logout} to={'/'} as={Link}>Logout</Nav.Link> :
+                                <Nav.Link >{<Login login={setIsLogin} />}</Nav.Link>
+                        }
 
-                        <Nav.Link onClick={logout} to={'/'} as={Link}>Logout</Nav.Link>
-                        <Nav.Link >{<Login login={setIsLogin} />}</Nav.Link>
+
 
 
 

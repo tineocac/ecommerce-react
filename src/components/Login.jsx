@@ -100,7 +100,10 @@ const Login = ({ login }) => {
                 </Modal.Header>
                 <Modal.Body>Enjoy your shopping</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose2}>
+                    <Button variant="secondary" onClick={() => {
+                        handleClose2()
+                        login(true)
+                        }}>
                         Close
                     </Button>
                 </Modal.Footer>
