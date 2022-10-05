@@ -16,6 +16,8 @@ const Home = () => {
     const [newFiltered, setNewFiltered] = useState([]);
     const [textInput, setTexInput] = useState('');
 
+
+
     useEffect(() => {
         axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/products/categories')
             .then(res => setCategories(res.data.data.categories))
@@ -33,37 +35,38 @@ const Home = () => {
     const search = (categoryId) => {
         const filtered = products.filter(product => product.title.toLowerCase().includes(textInput.toLowerCase()))
         setNewFiltered(filtered)
+    
     }
 
 
     return (
         <Row>
-             <Carousel >
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-        src={homeImg}
-        alt="BlackFriday "
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={BlackFriday}
-          alt="Halloween  sale"
-        />
-      </Carousel.Item>
+            <Carousel >
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={homeImg}
+                        alt="BlackFriday "
+                    />
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={BlackFriday}
+                        alt="Halloween  sale"
+                    />
+                </Carousel.Item>
 
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={days}
-          alt="sale"
-        />
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={days}
+                        alt="sale"
+                    />
 
-      </Carousel.Item>
-    </Carousel>
-            
+                </Carousel.Item>
+            </Carousel>
+
             <Col lg={1} className='dropdown-position'>
                 <Dropdown>
                     <Dropdown.Toggle>
@@ -91,9 +94,9 @@ const Home = () => {
             <Col>
                 <InputGroup className="mb-3">
                     <Form.Control
-                        placeholder="type name product here" value={textInput} onChange={e => setTexInput(e.target.value)}
+                        placeholder="type name product here" value={textInput} onChange={e => setTexInput(e.target.value) } onKeyDown={search} 
                     />
-                    <Button variant="outline-secondary" onClick={search}>
+                    <Button  onClick={search}>
                         Search
                     </Button>
                 </InputGroup>
