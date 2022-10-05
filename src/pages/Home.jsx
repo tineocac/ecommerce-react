@@ -32,7 +32,7 @@ const Home = () => {
         setNewFiltered(filtered)
     }
 
-    const search = (categoryId) => {
+    const search = () => {
         const filtered = products.filter(product => product.title.toLowerCase().includes(textInput.toLowerCase()))
         setNewFiltered(filtered)
     
