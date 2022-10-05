@@ -8,17 +8,14 @@
 
   margin: 0 auto;
 }
-.carousel-item{
-  /* margin: 1.5rem 6rem; */
-}
+
 .carousel-item{
   object-fit: contain;
-  
 }
 .show-info-details {
   margin-top: 2em;
   height: 2rem;
-  width: 50%;
+  width: 100%;
   border: none;
   border-radius: 1rem;
   background-color: #001F76;
@@ -32,4 +29,15 @@
   border-radius: 1rem;
   padding: 2rem;
   margin-bottom: 2rem;
+}
+.product-realted-title{
+  background-color: white;
+  height: 2rem;
+  text-align: center;
+  margin:0 auto;
+  padding: 2px;
+  border-radius: 1rem 1rem 0rem 0rem;
+}
+.col-lg2{
+  border-radius: 1rem;
 }

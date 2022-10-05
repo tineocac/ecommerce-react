@@ -1,11 +1,8 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState, React } from "react";
 import { Carousel, Col, ListGroup, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
-
 import productdetail from "../assets/css/productdetail.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const ProductDetail = () => {
   const [showDescription, setShowDescription] = useState(false);
@@ -19,6 +16,8 @@ const ProductDetail = () => {
   const infoProduct = productList.filter(
     (product) => product.category.id === productDetail.category.id
   );
+const navigate =  useNavigate();
+
   // console.log(productList);
   // console.log(productDetail);
   console.log(infoProduct);
@@ -43,14 +42,12 @@ const ProductDetail = () => {
 
         {/* ====== DESCRIPTION ====== 
           */}
-        {showDescription ? (
           <>
             <button
               className="show-info-details"
             >
               {" "}
               Description
-              <i className="fa-solid fa-chevron-up"></i>
             </button>
             <div className="description-container">
               <p>{infoProduct[0]?.description}</p>
@@ -64,30 +61,27 @@ const ProductDetail = () => {
               </span>
             </div>
           </>
-        ) : (
-          <button
-            className="show-info-details">
-            Description <i className="fa-solid fa-chevron-down"></i>
-          </button>
-        )}
+       
       </Col>
       {/* ====== PRODUCTS RELATED ======
       Col, Container, ListGroup,*/
       }
-      <Col lg={2}>
-        <p>Products related </p>
+      <Col style={{borderRadius:"1rem", filter: "drop-shadow(5px 5px 5px rgba(5, 7, 12, 1))", margin:"0rem  auto 2rem"}} lg={3} md={4}>
+        <p className="product-realted-title">Products related </p>
         <ListGroup>
           {
             infoProduct.map((info) => (
-              <ListGroup.Item key={info.id}
-                onClick={() => setChangeImg(info.productImgs?.[0])}
-                to={`/product/${info.id}`} >
+              <Link style={{textDecoration:"none"}} key={info.id}
+              to={`/product/${info.id}`} >
+              <ListGroup.Item >
 
-                <div style={{ backgroundImage: `url(${info.productImgs?.[0]})` }}>
+                <div style={{ backgroundImage: `url(${info.productImgs?.[0]})`, margin:" 0 auto", width: "100px", height:"150px", backgroundRepeat:"no-repeat", backgroundSize:"contain",
+            backgroundPosition:"center" }}>
                 </div>
 
                 <p className="products-related-name">{info.title}</p>
               </ListGroup.Item>
+              </Link>
             ))}
         </ListGroup>
       </Col>
