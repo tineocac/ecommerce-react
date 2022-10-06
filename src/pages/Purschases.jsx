@@ -28,7 +28,10 @@ const Purschases = () => {
 
   return (
     <>
-      <i className="fa-solid fa-circle-arrow-left" onClick={() => navigate(-1)}></i>
+      <i className="fa-solid fa-circle-arrow-left" onClick={() => {
+        navigate(-1)
+        scrollTo(0, 0)
+        }}></i>
 
       <ListGroup>
         <h1 className="purschases-title">My Purschases </h1>
