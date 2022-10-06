@@ -1,4 +1,4 @@
-import { isPropertyDescriptor } from "create";
+
 import React, { useEffect } from "react";
 import { Button, Card, CardImg, ListGroup, ListGroupItem } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,7 +50,7 @@ const Purschases = () => {
                     {/* {
                     products.find((productG, index)=>{ productG.id === product.id
                       return(
-                        <img src={product.productImgs?.[index]}/>
+                        <img src={productG.productImgs?.[index]}/>
                       )
                     }) 
                     
