@@ -11,8 +11,9 @@ const Purschases = () => {
   const navigate = useNavigate();
   const products = useSelector((state) => state.products);
 
-  // const cardProductImg = products.filter(productL => productL[0]?.id === product.id)
-  // console.log(cardProductImg);
+// const cardProductImg = products.filter(productL => productL[0]?.id === product.id)
+// console.log(cardProductImg);
+
 
   useEffect(() => {
     dispacth(getPurschasesThunk());
