@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { Button, Card, CardImg, ListGroup, ListGroupItem } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import PurchaseCard from "../components/PurchaseCard";
 import { getPurschasesThunk } from "../store/slices/purschases.slice";
 
 const Purschases = () => {
@@ -11,7 +12,7 @@ const Purschases = () => {
 
   const purschases = useSelector((state) => state.purschases);
   const navigate = useNavigate();
-  const products = useSelector((state) => state.products);
+ 
   const {id} = useParams();
 
 //  console.log(products)
@@ -21,6 +22,8 @@ const Purschases = () => {
   useEffect(() => {
     dispacth(getPurschasesThunk());
   }, []);
+
+  
 
   return (
     <div>
@@ -36,30 +39,7 @@ const Purschases = () => {
             </ListGroup.Item>
             <div style={{ widht: "55rem", margin: "0 auto" }}>
               {purschase.cart.products.map((product) => (
-                <Card key={product.id} style={{ width: "100%" }}>
-                  <Card.Body >
-                    <Card.Title>Mis compras</Card.Title>
-                    <Card.Text style={{ cursor: "pointer", width: "80%" }}>
-                      Entregado el {purschase.createdAt}
-                    </Card.Text>
-                    <Card.Text style={{ cursor: "pointer", width: "80%" }}>
-                      {product.title}
-                    </Card.Text>
-                    <Card.Text style={{ cursor: "pointer", width: "80%" }}>
-                      Price: ${product.price}
-                    </Card.Text>
-                    {/* {
-                    products.find((productG, index)=>{ productG.id === product.id
-                      return(
-                        <img src={productG.productImgs?.[index]}/>
-                      )
-                    }) 
-                    
-                  } */}
-                    
-                    <Button onClick={() => navigate(`/product/${product.id}`)} style={{backgroundColor:"#00247A", border:"none"}}>Buy again</Button>
-                  </Card.Body>
-                </Card>
+                <PurchaseCard purschase={purschase} product={product} key={product.id}/>
               ))}
             </div>
           </div>
