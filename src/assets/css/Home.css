@@ -5,6 +5,16 @@
   margin: 0rem auto 2rem;
 }
 
+/* ====== INPUT SEARCH ===== */
+
+.input-search{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
 /*===== DROPDOWN =====*/
 .dropdown-position {
   position: sticky;
