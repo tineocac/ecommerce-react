@@ -94,7 +94,7 @@ const filterByPrice3 = ()=>{
                         Categories
                     </Dropdown.Toggle>
 
-                    <Dropdown.Menu onClick={() => window.scrollTo(0, 0)}>
+                    <Dropdown.Menu onClick={() => window.scrollTo(0, 300)}>
                         <Dropdown.Item action onClick={() => setNewFiltered(products)}>
                             All categories
                         </Dropdown.Item>

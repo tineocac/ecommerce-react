@@ -16,7 +16,7 @@
 .dropdown-position {
   position: sticky;
   height: fit-content;
-  top: 50px;
+  top: 230px;
   z-index: 10;
   width: fit-content !important;
   padding: 0 !important;

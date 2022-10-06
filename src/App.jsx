@@ -19,6 +19,7 @@ function App() {
 
   useEffect(() => {
     dispacth(productsThunk())
+
   }, [])
 
   return (
