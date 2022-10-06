@@ -35,6 +35,7 @@ const Home = () => {
     const search = () => {
         const filtered = products.filter(product => product.title.toLowerCase().includes(textInput.toLowerCase()))
         setNewFiltered(filtered)
+
     }
 
     // filter de o -500
@@ -126,16 +127,20 @@ const filterByPrice3 = ()=>{
             <Col>
                 <InputGroup className="mb-3">
                     <Form.Control
-                        placeholder="type name product here" value={textInput} onChange={e => setTexInput(e.target.value) } onKeyDown={search} 
+                        placeholder="type name product here" value={textInput} onChange={e => setTexInput(e.target.value)} onKeyDown={search}
                     />
-                    <Button  onClick={search}>
+                    <Button onClick={search}>
                         Search
                     </Button>
                 </InputGroup>
                 <Row xs={1} md={2} xl={3} className="g-4">
                     {newFiltered.map(product => (
                         <Col className='container-card' key={product.id}>
-                            <Card onClick={() => navigate(`/product/${product.id}`)} style={{ height: '100%', cursor: 'pointer' }}>
+                            <Card onClick={() => {            
+                                navigate(`/product/${product.id}`)
+                                scrollTo(0, 0)
+
+                            }} style={{ height: '100%', cursor: 'pointer' }}>
 
                                 <div className='container-product'
                                     style={{ backgroundImage: `url(${product.productImgs[0]})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', }}
@@ -153,7 +158,7 @@ const filterByPrice3 = ()=>{
 
                                     <strong>
 
-                                      Price:  ${product.price}
+                                        Price:  ${product.price}
                                     </strong>
                                 </Card.Body>
                             </Card>

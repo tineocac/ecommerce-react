@@ -40,8 +40,10 @@ export const getPurschasesThunk = () => (dispatch) => {
   return axios
   .post('https://ecommerce-api-react.herokuapp.com/api/v1/purchases', {}, getConfig())
   .then( res => 
-    
-    dispatch(setCart([]), getCarThunk()))
+     {
+      dispatch(setCart([]))
+      location.reload()
+    })
   .catch( error => console.log(error.response))
   .finally( () => dispatch( setIsLoading( false )))
 }
