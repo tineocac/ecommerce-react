@@ -23,7 +23,6 @@ const Cart = ({ showCart, handleCloseCart }) => {
                     cart.map(product =>
                         <li key={product.id}>
                             <Link to={`/product/${product.productsInCart.productId}`}>{product.title}</Link>
-
                         </li>)
                 }
             </Offcanvas.Body>

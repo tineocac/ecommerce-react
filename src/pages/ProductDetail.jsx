@@ -1,11 +1,14 @@
 import { useEffect, useState, React } from "react";
-import { Carousel, Col, ListGroup, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import productdetail from "../assets/css/productdetail.css";
+import { Button, Carousel, Col, ListGroup, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+// import productdetail from "../assets/css/productdetail.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { postCartThunk } from "../store/slices/cart.slice";
 
 const ProductDetail = () => {
   const [showDescription, setShowDescription] = useState(false);
+
+  const dispatch = useDispatch();
 
   const { id } = useParams();
   const productList = useSelector((state) => state.products);
@@ -17,6 +20,22 @@ const ProductDetail = () => {
     (product) => product.category.id === productDetail.category.id
   );
 const navigate =  useNavigate();
+
+const [ amount, setAmount] = useState(0)
+
+const addCart = () => {
+  alert(`amount: ${amount}`)
+  const product = {
+    id: id,
+    quantity: amount
+  }
+  dispatch(postCartThunk(product))
+}
+
+useEffect( () => {
+  setAmount(0)
+}, [id])
+
 
   // console.log(productList);
   // console.log(productDetail);
@@ -40,6 +59,7 @@ const navigate =  useNavigate();
           ))}
         </Carousel>
 
+
         {/* ====== DESCRIPTION ====== 
           */}
           <>
@@ -60,6 +80,13 @@ const navigate =  useNavigate();
                 )}
               </span>
             </div>
+
+<div>
+  <Button className='me-1' onClick={() => setAmount( amount-1)} >-</Button>
+  <Button>{amount}</Button>
+  <Button className='ms-1' onClick={() => setAmount( amount+1)}>+</Button>
+  <Button onClick={addCart}>Add to cart</Button>
+</div>
           </>
        
       </Col>
