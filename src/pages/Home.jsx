@@ -121,7 +121,7 @@ const Home = () => {
 
                                     <strong>
 
-                                        ${product.price}
+                                      Price:  ${product.price}
                                     </strong>
                                 </Card.Body>
                             </Card>

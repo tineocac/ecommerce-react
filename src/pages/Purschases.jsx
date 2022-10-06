@@ -11,46 +11,52 @@ const Purschases = () => {
   const navigate = useNavigate();
   const products = useSelector((state) => state.products);
 
-const cardProductImg = products.filter(productL => productL[0]?.id === product.id)
-// console.log(cardProductImg);
-
+  // const cardProductImg = products.filter(productL => productL[0]?.id === product.id)
+  // console.log(cardProductImg);
 
   useEffect(() => {
     dispacth(getPurschasesThunk());
   }, []);
 
   return (
-    <div >
+    <div>
       <h1>My Purschases </h1>
-        <ListGroup>
-        {purschases.map((purschase) => 
-          <div style={{marginTop: "2rem"}} key={purschase.id}>
-            <ListGroup.Item style={{width:"15rem", borderRadius:"1rem 1rem 0rem 0rem"}}>{purschase.createdAt}</ListGroup.Item>
-            <div style={{widht:"55rem",margin:"0 auto"}}>
-              {purschase.cart.products.map((product) => 
+      <ListGroup>
+        {purschases.map((purschase) => (
+          <div style={{ marginTop: "2rem" }} key={purschase.id}>
+            <ListGroup.Item
+              style={{ width: "15rem", borderRadius: "1rem 1rem 0rem 0rem" }}
+            >
+              <strong>Pedido Realizado
+                </strong>  :{purschase.createdAt}
+            </ListGroup.Item>
+            <div style={{ widht: "55rem", margin: "0 auto" }}>
+              {purschase.cart.products.map((product) => (
                 <Card key={product.id} style={{ width: "100%" }}>
                   <Card.Img variant="top" />
-                  <Card.Body onClick={() => navigate(`/product/${product.id}`)}>
+                  <Card.Body >
                     <Card.Title>Mis compras</Card.Title>
-                    <Card.Text
-                        style={{ cursor: "pointer", width: "80%" }}>
-                        Entregado el {purschase.createdAt}
+                    <Card.Text style={{ cursor: "pointer", width: "80%" }}>
+                      Entregado el {purschase.createdAt}
                     </Card.Text>
-                    <Card.Text
-                        style={{ cursor: "pointer", width: "80%" }}>
-                        {product.title}
+                    <Card.Text style={{ cursor: "pointer", width: "80%" }}>
+                      {product.title}
                     </Card.Text>
-                    <Card.Text
-                        style={{ cursor: "pointer", width: "80%" }}>
-                        Price: ${product.price} 
+                    <Card.Text style={{ cursor: "pointer", width: "80%" }}>
+                      Price: ${product.price}
                     </Card.Text>
-                    <Button variant="primary">Buy again</Button>
+                    
+                    <Button variant="warning">Buy again</Button>
+                    <Button className= "pr-3"  onClick={() => navigate(`/product/${product.id}`)} variant="info">
+                      Show article
+                    </Button>
+                
                   </Card.Body>
                 </Card>
-              )}
+              ))}
             </div>
           </div>
-        )}
+        ))}
       </ListGroup>
     </div>
   );
