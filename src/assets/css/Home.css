@@ -9,13 +9,10 @@
 .dropdown-position {
   position: sticky;
   height: fit-content;
-  top: 0;
-  left: 0;
+  top: 50px;
   z-index: 10;
   width: fit-content !important;
   padding: 0 !important;
-}
-.dropdown {
 }
 
 /*===== CARDS ======*/
