@@ -1,26 +1,11 @@
 .navbar{
-    position: fixed;
+    position: sticky !important;
+    top: 0;
+    z-index: 10;
+    padding: 0 !important;
+    height: fit-content !important;
 }
 
 .nav-link{
     width: fit-content;
-}
-
-/* .proof{
-    color: rgba(255, 255, 255, 0.6)!important;
-    --bs-btn-color: #d2e6f9;
-    --bs-btn-hover-bg: transparent!important;
-    --bs-btn-hover-border-color: transparent!important;
-    --bs-btn-padding-x: none!important;
-    font-size: 0.9625rem !important;
-    height: 25.55px !important;
-    display: flex !important;
-}
-
-.proof:hover{
-    color: #fff !important;
-} */
-
-.fa-square-check{
-    color: #4582ec;
 }

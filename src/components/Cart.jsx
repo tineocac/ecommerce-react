@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { Offcanvas } from 'react-bootstrap';
+import { Button, Offcanvas } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getCarThunk } from '../store/slices/cart.slice';
+import { getCarThunk, getPurschasesThunk } from '../store/slices/cart.slice';
 
 const Cart = ({ showCart, handleCloseCart }) => {
 
@@ -25,7 +25,9 @@ const Cart = ({ showCart, handleCloseCart }) => {
                             <Link to={`/product/${product.productsInCart.productId}`}>{product.title}</Link>
                         </li>)
                 }
+
             </Offcanvas.Body>
+            <Button onClick={() => dispatch(getPurschasesThunk())}>Buy</Button>
         </Offcanvas>
     );
 };

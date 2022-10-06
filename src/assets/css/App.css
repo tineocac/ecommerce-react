@@ -15,10 +15,10 @@ body::after {
   height: 290.64px;
 }
 
-.App{
+.App {
   min-height: 100vh;
-
-  background:linear-gradient(#F5F8FF, rgb(52, 58, 64) ) 
+  /* position: relative; */
+  background: linear-gradient(#f5f8ff, rgb(52, 58, 64));
 }
 /* #001f76a3 */
 footer {
@@ -28,5 +28,5 @@ footer {
   height: 290.64px;
 }
 
-.container{
+.container {
 }
