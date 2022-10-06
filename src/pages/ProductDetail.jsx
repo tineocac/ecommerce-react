@@ -105,6 +105,7 @@ const ProductDetail = () => {
               <Link onClick={() => {
                 dispatch(setIsLoading(true))
                 setTimeout(() => dispatch(setIsLoading(false)), 1000)
+                scrollTo(0, 0)
               }} style={{ textDecoration: "none" }} key={info.id}
                 to={`/product/${info.id}`} >
                 <ListGroup.Item className="container_products-related">
