@@ -35,6 +35,7 @@ const Home = () => {
     const search = () => {
         const filtered = products.filter(product => product.title.toLowerCase().includes(textInput.toLowerCase()))
         setNewFiltered(filtered)
+        setTexInput('')
 
     }
 
@@ -92,18 +93,22 @@ const Home = () => {
             </Col>
 
             <Col>
-                <InputGroup className="mb-3">
-                    <Form.Control
-                        placeholder="type name product here" value={textInput} onChange={e => setTexInput(e.target.value)} onKeyDown={search}
-                    />
-                    <Button onClick={search}>
-                        Search
-                    </Button>
+                <InputGroup className="mb-3 input-search">
+                    <Form onSubmit={search}>
+                        <Form.Control
+                            placeholder="type name product here" value={textInput} onChange={e => setTexInput(e.target.value)}
+                        />
+                        <Button type='submit'>
+                            Search
+                        </Button>
+                    </Form>
+
+
                 </InputGroup>
                 <Row xs={1} md={2} xl={3} className="g-4">
                     {newFiltered.map(product => (
                         <Col className='container-card' key={product.id}>
-                            <Card onClick={() => {            
+                            <Card onClick={() => {
                                 navigate(`/product/${product.id}`)
                                 scrollTo(0, 0)
 
