@@ -10,10 +10,6 @@
     width: fit-content;
 }
 
-.logout{
-    color: #f08080 !important;
-}
-
 .logout:hover{
     color: #B44C4F !important;
 }

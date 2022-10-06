@@ -54,7 +54,7 @@ const Navigation = () => {
                   </Nav.Link>
                   <Nav.Link onClick={handleShowCart}><i class="fa-solid fa-cart-shopping"></i></Nav.Link>
                   <Nav.Link className="logout" onClick={logout} to={"/"} as={Link}>
-                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                      <i class="fa-solid fa-right-from-bracket"></i> Logout 
                   </Nav.Link>
                 </Nav>
               }
