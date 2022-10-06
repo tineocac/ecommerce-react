@@ -6,13 +6,10 @@
 }
 
 /* ====== INPUT SEARCH ===== */
-
-.input-search{
+.input-search_container{
   display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: nowrap;
+  width: 100%;
+  gap: .5em;
 }
 
 /*===== DROPDOWN =====*/

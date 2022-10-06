@@ -39,6 +39,11 @@ const Home = () => {
 
     }
 
+    const autoSearch = () => {
+        const filtered = products.filter(product => product.title.toLowerCase().includes(textInput.toLowerCase()))
+        setNewFiltered(filtered)
+    }
+
     // filter de o -500
 const filterByPrice1 = ()=>{
     
@@ -126,8 +131,8 @@ const filterByPrice3 = ()=>{
             </Col>
 
             <Col>
-                <InputGroup className="mb-3 input-search">
-                    <Form onSubmit={search}>
+                <InputGroup className="mb-3">
+                    <Form className='input-search_container' onSubmit={search} onKeyDown={autoSearch}>
                         <Form.Control
                             placeholder="type name product here" value={textInput} onChange={e => setTexInput(e.target.value)}
                         />
