@@ -24,7 +24,7 @@ const navigate =  useNavigate();
 const [ amount, setAmount] = useState(0)
 
 const addCart = () => {
-  alert(`amount: ${amount}`)
+  // alert(`amount: ${amount}`)
   const product = {
     id: id,
     quantity: amount
@@ -81,11 +81,11 @@ useEffect( () => {
               </span>
             </div>
 
-<div>
-  <Button className='me-1' onClick={() => setAmount( amount-1)} >-</Button>
-  <Button>{amount}</Button>
-  <Button className='ms-1' onClick={() => setAmount( amount+1)}>+</Button>
-  <Button onClick={addCart}>Add to cart</Button>
+<div className="btns-container">
+  <Button disabled={amount === 0} className='me-1 mb-1' onClick={() => setAmount( amount-1)} >-</Button>
+  <Button className="mb-1">{amount}</Button>
+  <Button className='ms-1 mb-1' onClick={() => setAmount( amount+1)}>+</Button>
+  <Button className="me-3" variant="warning" onClick={addCart}>Add to cart</Button>
 </div>
           </>
        
