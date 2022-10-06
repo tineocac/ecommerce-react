@@ -53,7 +53,7 @@ const navigate =  useNavigate();
               <p>{infoProduct[0]?.description}</p>
               <span>
                 {" "}
-                {productDetail.status === "active" ? (
+                {productDetail?.status === "active" ? (
                   <strong>Stock: Available</strong>
                 ) : (
                   <strong>Stock: 0</strong>
