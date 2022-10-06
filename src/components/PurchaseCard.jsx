@@ -6,15 +6,18 @@ const PurchaseCard = ({ product, purschase }) => {
 
   const products = useSelector((state) => state.products);
   const productImg = products.find((productG, index) => productG.id === product.id);
-  // console.log(productImg)
+  
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+  const date = new Date(purschase.createdAt)
+
   return (
 
       <Card style={{ width: "100%" }}>
 
         <Card.Body>
-          <Card.Title>Mis compras</Card.Title>
+          <Card.Title>Product</Card.Title>
           <Card.Text style={{ cursor: "pointer", width: "80%" }}>
-            Entregado el {purschase.createdAt}
+          delivered on {date.toLocaleDateString(undefined, options)}
           </Card.Text>
           <Card.Text style={{ cursor: "pointer", width: "80%" }}>
             {product.title}
