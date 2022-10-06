@@ -39,7 +39,22 @@ const Home = () => {
 
     }
 
-
+    // filter de o -500
+const filterByPrice1 = ()=>{
+    
+    const filter = products.filter(product => Number(product.price) <= 499.00 )
+    setNewFiltered(filter)
+}
+const filterByPrice2 = ()=>{
+    
+    const filter = products.filter(product => Number(product.price) <= 1000.00 && Number(product.price)>= 500)
+    setNewFiltered(filter)
+}
+const filterByPrice3 = ()=>{
+    
+    const filter = products.filter(product =>  Number(product.price) <= 1600.00 && Number(product.price) >= 1000 )
+    setNewFiltered(filter)
+}
     return (
         <Row>
             <Carousel >
@@ -88,6 +103,24 @@ const Home = () => {
                             )
                             )
                         }
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown className='mt-3'style={{width:"3rem"}}>
+                    <Dropdown.Toggle>
+                         Prices
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu onClick={() => window.scrollTo(0, 0)}>
+                        <Dropdown.Item onClick={filterByPrice1} action>
+                            $0 - $500
+                        </Dropdown.Item>
+                        <Dropdown.Item onClick={filterByPrice2} action>
+                            $500 - $1000
+                        </Dropdown.Item>
+                        <Dropdown.Item style={{cursor:"pointer"}} onClick={filterByPrice3} action>
+                            $1000 - $1500
+                        </Dropdown.Item>
+    
                     </Dropdown.Menu>
                 </Dropdown>
             </Col>

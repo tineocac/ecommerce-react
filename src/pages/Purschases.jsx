@@ -1,7 +1,8 @@
+import { isPropertyDescriptor } from "create";
 import React, { useEffect } from "react";
-import { Button, Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Button, Card, CardImg, ListGroup, ListGroupItem } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getPurschasesThunk } from "../store/slices/purschases.slice";
 
 const Purschases = () => {
@@ -10,9 +11,10 @@ const Purschases = () => {
   const purschases = useSelector((state) => state.purschases);
   const navigate = useNavigate();
   const products = useSelector((state) => state.products);
+  const {id} = useParams();
 
-// const cardProductImg = products.filter(productL => productL[0]?.id === product.id)
-// console.log(cardProductImg);
+//  console.log(products)
+ 
 
 
   useEffect(() => {
@@ -24,7 +26,7 @@ const Purschases = () => {
       <h1>My Purschases </h1>
       <ListGroup>
         {purschases.map((purschase) => (
-          <div style={{ marginTop: "2rem" }} key={purschase.id}>
+          <div style={{ marginTop: "2rem" }} key={purschase.cartId}>
             <ListGroup.Item
               style={{ width: "15rem", borderRadius: "1rem 1rem 0rem 0rem" }}
             >
@@ -34,7 +36,6 @@ const Purschases = () => {
             <div style={{ widht: "55rem", margin: "0 auto" }}>
               {purschase.cart.products.map((product) => (
                 <Card key={product.id} style={{ width: "100%" }}>
-                  <Card.Img variant="top" />
                   <Card.Body >
                     <Card.Title>Mis compras</Card.Title>
                     <Card.Text style={{ cursor: "pointer", width: "80%" }}>
@@ -46,12 +47,16 @@ const Purschases = () => {
                     <Card.Text style={{ cursor: "pointer", width: "80%" }}>
                       Price: ${product.price}
                     </Card.Text>
+                    {/* {
+                    products.find((productG, index)=>{ productG.id === product.id
+                      return(
+                        <img src={product.productImgs?.[index]}/>
+                      )
+                    }) 
                     
-                    <Button variant="warning">Buy again</Button>
-                    <Button className= "pr-3"  onClick={() => navigate(`/product/${product.id}`)} variant="info">
-                      Show article
-                    </Button>
-                
+                  } */}
+                    
+                    <Button onClick={() => navigate(`/product/${product.id}`)} style={{backgroundColor:"#00247A", border:"none"}}>Buy again</Button>
                   </Card.Body>
                 </Card>
               ))}
