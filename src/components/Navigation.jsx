@@ -19,7 +19,6 @@ const Navigation = () => {
   const handleShowLogin = () => setShowLogin(true);
 
   const logout = () => {
-    alert("testing");
     localStorage.setItem("token", "");
     setIsLogin(false);
     location.reload()

@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { Button, InputGroup, Form, Row, Col, ListGroup, Card, Dropdown, Carousel } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import homeImg from '../assets/images/homeImg.webp'
-import days from '../assets/images/days.jpg'
 import BlackFriday from '../assets/images/BlackFriday.png'
+import homeImg from '../assets/images/homeImg.png'
+import days from '../assets/images/days.png'
 
 const Home = () => {
 
@@ -45,49 +45,36 @@ const Home = () => {
     }
 
     // filter de o -500
-const filterByPrice1 = ()=>{
-    
-    const filter = products.filter(product => Number(product.price) <= 499.00 )
-    setNewFiltered(filter)
-}
-const filterByPrice2 = ()=>{
-    
-    const filter = products.filter(product => Number(product.price) <= 1000.00 && Number(product.price)>= 500)
-    setNewFiltered(filter)
-}
-const filterByPrice3 = ()=>{
-    
-    const filter = products.filter(product =>  Number(product.price) <= 1600.00 && Number(product.price) >= 1000 )
-    setNewFiltered(filter)
-}
+    const filterByPrice1 = () => {
+
+        const filter = products.filter(product => Number(product.price) <= 499.00)
+        setNewFiltered(filter)
+    }
+    const filterByPrice2 = () => {
+
+        const filter = products.filter(product => Number(product.price) <= 1000.00 && Number(product.price) >= 500)
+        setNewFiltered(filter)
+    }
+    const filterByPrice3 = () => {
+
+        const filter = products.filter(product => Number(product.price) <= 1600.00 && Number(product.price) >= 1000)
+        setNewFiltered(filter)
+    }
     return (
         <Row>
-            <Carousel >
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={homeImg}
-                        alt="BlackFriday "
-                    />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={BlackFriday}
-                        alt="Halloween  sale"
-                    />
-                </Carousel.Item>
+            <Col xs={12}>
+                <Carousel  className='carousel-home_container'>
+                    <Carousel.Item className='carousel-home' style={{ backgroundImage: `url(${homeImg})` }}>
+                    </Carousel.Item>
 
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={days}
-                        alt="sale"
-                    />
+                    <Carousel.Item className='carousel-home' style={{ backgroundImage: `url(${BlackFriday})` }}>
+                    </Carousel.Item>
 
-                </Carousel.Item>
-            </Carousel>
+                    <Carousel.Item className='carousel-home' style={{ backgroundImage: `url(${days})` }}>
+                    </Carousel.Item>
 
+                </Carousel>
+            </Col>
             <Col lg={1} className='dropdown-position'>
                 <Dropdown>
                     <Dropdown.Toggle>
@@ -110,9 +97,9 @@ const filterByPrice3 = ()=>{
                         }
                     </Dropdown.Menu>
                 </Dropdown>
-                <Dropdown className='mt-3'style={{width:"3rem"}}>
+                <Dropdown className='mt-3' style={{ width: "3rem" }}>
                     <Dropdown.Toggle>
-                         Prices
+                        Prices
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu onClick={() => window.scrollTo(0, 0)}>
@@ -122,10 +109,10 @@ const filterByPrice3 = ()=>{
                         <Dropdown.Item onClick={filterByPrice2} action>
                             $500 - $1000
                         </Dropdown.Item>
-                        <Dropdown.Item style={{cursor:"pointer"}} onClick={filterByPrice3} action>
+                        <Dropdown.Item style={{ cursor: "pointer" }} onClick={filterByPrice3} action>
                             $1000 - $1500
                         </Dropdown.Item>
-    
+
                     </Dropdown.Menu>
                 </Dropdown>
             </Col>

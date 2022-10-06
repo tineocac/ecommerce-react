@@ -5,6 +5,31 @@
     align-items: center;
 }
 
+.otrodiv{
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+}
+.purschase-img{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+.probandoagain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+}
+
+
 /* .card{
     background-color: aqua;
    
