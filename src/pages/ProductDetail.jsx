@@ -1,7 +1,7 @@
 import { useEffect, useState, React } from "react";
 import { Button, Carousel, Col, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-// import productdetail from "../assets/css/productdetail.css";
+import productdetail from "../assets/css/productdetail.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { postCartThunk } from "../store/slices/cart.slice";
 
