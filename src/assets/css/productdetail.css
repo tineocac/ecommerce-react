@@ -1,3 +1,21 @@
+/* ====== ARROW =====*/
+.fa-circle-arrow-left {
+  position: fixed;
+  left: .5em;
+  z-index: 30;
+  font-size: 2em;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: .5s;
+}
+
+.fa-circle-arrow-left:hover {
+  color: #001f76;
+  opacity: 1;
+  transform: scale(1.05);
+  transition: .5s;
+}
+
 .product-name {
   margin: 2rem auto 2rem;
   width: 100%;
@@ -55,9 +73,9 @@
 }
 
 .container_products-related:hover {
-  background: #F6F9FF;
-  border: 1px solid #A7AABD;
+  background: #f6f9ff;
+  border: 1px solid #a7aabd;
 }
-.products-related-name{
+.products-related-name {
   text-align: center;
 }

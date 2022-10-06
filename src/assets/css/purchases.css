@@ -1,7 +1,14 @@
-.card{
+.purschases-title{
+    margin: 32px 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .card{
     background-color: aqua;
    
 }
 .purchases-container{
     margin-top: 1rem;
-}
+} */

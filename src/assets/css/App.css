@@ -28,5 +28,6 @@ footer {
   height: 290.64px;
 }
 
-.container {
+.container{
+  position: relative;
 }
