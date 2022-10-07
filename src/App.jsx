@@ -11,6 +11,7 @@ import Home from './pages/Home'
 import ProductDetail from './pages/ProductDetail'
 import Purschases from './pages/Purschases'
 import { productsThunk } from './store/slices/products.slice'
+import 'bootswatch/dist/Litera/bootstrap.min.css';
 
 function App() {
 
