@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Button, Card, CardImg, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 const PurchaseCard = ({ product, purschase }) => {
 

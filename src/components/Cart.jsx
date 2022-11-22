@@ -1,47 +1,60 @@
-import React, { useEffect } from 'react';
-import { Button, Offcanvas } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
-import { getCarThunk, getPurschasesThunk } from '../store/slices/cart.slice';
-import { setIsLoading } from '../store/slices/isLoading.slice';
+import React, { useEffect } from "react";
+import { Button, Offcanvas, Card } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { getCarThunk, getPurschasesThunk } from "../store/slices/cart.slice";
+import { setIsLoading } from "../store/slices/isLoading.slice";
 
-const Cart = ({ showCart, handleCloseCart }) => {
+const Cart = ({ showCart, handleCloseCart, product }) => {
+  const cart = useSelector((state) => state.cart);
+ 
+  const products = useSelector((state) => state.products);
+  const productImg = products.find((productG, index) => productG.id === cart[0].id);
 
-    const cart = useSelector(state => state.cart)
+  const { id } = useParams();
 
-    const {id} = useParams()
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCarThunk());
+  }, [id]);
 
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(getCarThunk())
+  return (
+    <Offcanvas show={showCart} onHide={handleCloseCart} placement="end">
+      <Offcanvas.Header closeButton>
+        <Offcanvas.Title>Cart</Offcanvas.Title>
+      </Offcanvas.Header>
+      <Offcanvas.Body style={{margin:"0 auto", }}>
+        {cart.map((product) => (
+          
+            <Card key={product.id} style={{ width: "18rem", margin:"1rem auto"}}>
+              <Card.Body>
+                <Card.Title>{product.title}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                  ${product.price}
+                </Card.Subtitle>
+
+                <Card.Link
+                style={{ cursor: "pointer"}}
+                  onClick={() => {
+                    dispatch(setIsLoading(true));
+                    setTimeout(() => dispatch(setIsLoading(false)), 500);
+                    handleCloseCart();
+                  }}
+                  to={`/product/${product.productsInCart.productId}`}
+                >
+                  Details
+                </Card.Link>
+                <div className="otrodiv">
+          <div className="purschase-img" style={{ backgroundImage: `url(${productImg?.productImgs[0]})` }}></div>
+        </div>
+              </Card.Body>
+            </Card>
         
-    }, [id])
-
-
-
-    return (
-        <Offcanvas show={showCart} onHide={handleCloseCart} placement='end'>
-            <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Cart</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-                {
-                    cart.map(product =>
-                        <li key={product.id}>
-                            <Link onClick={() => {
-                                dispatch(setIsLoading(true))
-                                setTimeout(() => dispatch(setIsLoading(false)), 500)
-                                handleCloseCart() 
-
-                            }
-                            } to={`/product/${product.productsInCart.productId}`}>{product.title}</Link>
-                        </li>)
-                }
-
-            </Offcanvas.Body>
-            <Button onClick={() => dispatch(getPurschasesThunk())}>Buy</Button>
-        </Offcanvas>
-    );
+        ))}
+      </Offcanvas.Body>
+      <Button onClick={() => dispatch(getPurschasesThunk())}>Buy</Button>
+    </Offcanvas>
+  );
 };
 
 export default Cart;

@@ -17,7 +17,7 @@ const Login = ({  showLogin, handleCloseLogin }) => {
     const submit = (data) => {
 
         axios
-            .post('https://ecommerce-api-react.herokuapp.com/api/v1/users/login', data)
+            .post('https://e-commerce-api.academlo.tech/api/v1/users/login', data)
             .then(res => {
                 localStorage.setItem('token', res.data.data.token)
                 navigate('/')
@@ -53,7 +53,7 @@ const Login = ({  showLogin, handleCloseLogin }) => {
                     <Form >
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email"  {...register('email')} />
+                            <Form.Control type="email" placeholder="Recluter, please type: john@gmail.com"  {...register('email')} />
                             <Form.Text className="text-muted">
                                 We'll never share your email with anyone else.
                             </Form.Text>
@@ -61,7 +61,7 @@ const Login = ({  showLogin, handleCloseLogin }) => {
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" {...register('password')} />
+                            <Form.Control type="password" placeholder="Recluter, please type: john1234" {...register('password')} />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
