@@ -9,7 +9,7 @@ const Cart = ({ showCart, handleCloseCart, product }) => {
   const cart = useSelector((state) => state.cart);
  
   const products = useSelector((state) => state.products);
-  const productImg = products.find((productG, index) => productG.id === cart[0].id);
+  const productImg = products.find((productG, index) => productG.id === cart?.[0].id);
 
   const { id } = useParams();
 
