@@ -5,7 +5,7 @@ import { Button, Card } from "react-bootstrap";
 const PurchaseCard = ({ product, purschase }) => {
 
   const products = useSelector((state) => state.products);
-  const productImg = products.find((productG, index) => productG.id === product.id);
+  const productImg = products.find((productG) => productG.id === product.id);
 
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const date = new Date(purschase.createdAt)

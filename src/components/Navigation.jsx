@@ -45,15 +45,15 @@ const Navigation = () => {
               </Nav.Link>
 
               {isLogin === "" ?
-                <Nav.Link onClick={handleShowLogin}><i class="fa-solid fa-user"></i> Login</Nav.Link>
+                <Nav.Link onClick={handleShowLogin}><i className="fa-solid fa-user"></i> Login</Nav.Link>
                 :
                 <Nav >
                   <Nav.Link to="/purschases" as={Link}>
                     Purschases
                   </Nav.Link>
-                  <Nav.Link onClick={handleShowCart}><i class="fa-solid fa-cart-shopping"></i></Nav.Link>
+                  <Nav.Link onClick={handleShowCart}><i className="fa-solid fa-cart-shopping"></i></Nav.Link>
                   <Nav.Link className="logout" onClick={logout} to={"/"} as={Link}>
-                      <i class="fa-solid fa-right-from-bracket"></i> Logout 
+                      <i className="fa-solid fa-right-from-bracket"></i> Logout 
                   </Nav.Link>
                 </Nav>
               }

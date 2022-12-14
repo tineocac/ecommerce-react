@@ -5,11 +5,12 @@ import { Link, useParams } from "react-router-dom";
 import { getCarThunk, getPurschasesThunk } from "../store/slices/cart.slice";
 import { setIsLoading } from "../store/slices/isLoading.slice";
 
-const Cart = ({ showCart, handleCloseCart, product }) => {
+const Cart = ({ showCart, handleCloseCart}) => {
   const cart = useSelector((state) => state.cart);
  
   const products = useSelector((state) => state.products);
-  const productImg = products.find((productG, index) => productG.id === cart?.[0].id);
+
+  
 
   const { id } = useParams();
 
@@ -45,7 +46,8 @@ const Cart = ({ showCart, handleCloseCart, product }) => {
                   Details
                 </Card.Link>
                 <div className="otrodiv">
-          <div className="purschase-img" style={{ backgroundImage: `url(${productImg?.productImgs[0]})` }}></div>
+                  
+          <div className="purschase-img" style={{ backgroundImage: `url(u)` }}></div>
         </div>
               </Card.Body>
             </Card>

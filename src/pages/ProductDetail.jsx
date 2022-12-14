@@ -41,7 +41,7 @@ const ProductDetail = () => {
 
   // console.log(productList);
   // console.log(productDetail);
-  console.log(infoProduct);
+  // console.log(infoProduct);
 
   return (
     <>

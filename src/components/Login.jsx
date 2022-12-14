@@ -17,7 +17,7 @@ const Login = ({  showLogin, handleCloseLogin }) => {
     const submit = (data) => {
 
         axios
-            .post('https://ecommerce-api-react.herokuapp.com/api/v1/users/login', data)
+            .post('https://e-commerce-api.academlo.tech/api/v1/users/login', data)
             .then(res => {
                 localStorage.setItem('token', res.data.data.token)
                 navigate('/')
@@ -30,7 +30,7 @@ const Login = ({  showLogin, handleCloseLogin }) => {
                 if (error.response.status === 404) {
                     alert('wrong credentials')
                 }
-                console.log(error.response)
+                // console.log(error.response)
             })
 
 
