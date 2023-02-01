@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useState } from "react";
 import { Button, Offcanvas, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -10,7 +11,7 @@ const Cart = ({ showCart, handleCloseCart}) => {
  
   const products = useSelector((state) => state.products);
 
-  
+
 
   const { id } = useParams();
 
